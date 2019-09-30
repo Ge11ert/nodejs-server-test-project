@@ -4,7 +4,11 @@
   "description": "Test project to get a taste of a simple nodejs server",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "lint": "eslint --cache -c .eslintrc --ext .js ./"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
   },
   "keywords": [],
   "author": "ge11ert",
@@ -13,6 +17,10 @@
     "express": "4.17.1"
   },
   "devDependencies": {
+    "eslint": "6.5.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-node": "10.0.0",
     "nodemon": "1.19.3"
   }
 }
