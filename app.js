@@ -12,6 +12,9 @@ const server = http.createServer(app);
 server.on('error', (e) => {
   if (e.code === 'EADDRINUSE') {
     console.warn(`Port ${port} already in use. Please, provide another.`);
+    server.close();
+  } else {
+    console.warn(e);
   }
 });
 
