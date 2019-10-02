@@ -2,9 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Test project to get a taste of a simple nodejs server",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "nodemon index.js",
     "lint": "eslint --cache -c .eslintrc --ext .js ./"
   },
   "engines": {
