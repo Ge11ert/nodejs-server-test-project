@@ -1,7 +1,12 @@
 const http = require('http');
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
+
+// logging setup
+
+app.use(morgan('short'));
 
 // http server setup
 
