@@ -3,5 +3,8 @@ module.exports = {
     DEFAULT_HOST: '0.0.0.0',
     DEFAULT_PORT: 3090,
   },
-  database: {},
+  database: {
+    DEFAULT_HOST: '0.0.0.0',
+    DEFAULT_PORT: 27017,
+  },
 };

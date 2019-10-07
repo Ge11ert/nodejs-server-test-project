@@ -1,6 +1,20 @@
 const http = require('http');
+const mongoose = require('mongoose');
 const app = require('./app');
 const config = require('./config');
+
+// db connection setup
+
+const { database } = config;
+const dbUri = `mongodb://${database.DEFAULT_HOST}:${database.DEFAULT_PORT}/auth`;
+const dbOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.connect(dbUri, dbOptions)
+  .then(() => console.log('Connection to DB established.'))
+  .catch((e) => console.error('DB connection error:', e.message));
 
 // http server setup
 
