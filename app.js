@@ -11,4 +11,9 @@ app.use(morgan('short'));
 // handle json requests
 app.use(jsonParser);
 
+// handle route requests
+app.get('/', (req, res) => {
+  res.status(200).send({ status: 'ok', result: 'Hello, stranger.' });
+});
+
 module.exports = app;
