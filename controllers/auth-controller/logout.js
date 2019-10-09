@@ -1,3 +1,3 @@
-module.exports = function logout(req, res, next) {
+module.exports = function logout(userService, req, res, next) {
   //
 };

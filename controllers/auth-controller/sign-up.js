@@ -1,3 +1,3 @@
-module.exports = function signUp(req, res, next) {
+module.exports = function signUp(userService, req, res, next) {
   //
 };
