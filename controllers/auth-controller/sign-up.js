@@ -8,7 +8,7 @@ module.exports = async function signUp(userService, req, res) {
   }
 
   try {
-    const existingUser = await userService.getUserByCredentials(userCredentials);
+    const existingUser = await userService.getUserByEmail(userCredentials.email);
 
     if (existingUser) {
       return res.send({ status: 'userExistsError' });

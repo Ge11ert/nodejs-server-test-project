@@ -11,7 +11,18 @@ class UserService {
   }
 
   getUserByCredentials(creds) {
-    return this.getUserByEmail(creds.email);
+    return new Promise((resolve, reject) => {
+      this.getUserByEmail(creds.email).then((user) => {
+        const candidatePassword = creds.password;
+
+        const isMatch = user.comparePasswords(candidatePassword);
+
+        if (isMatch) {
+          return resolve(user);
+        }
+        return resolve(undefined);
+      }).catch((e) => reject(e));
+    });
   }
 
   getUserByEmail(email) {
