@@ -18,6 +18,6 @@ module.exports = async function signUp(userService, req, res) {
 
     return res.json({ status: 'ok', user });
   } catch (e) {
-    return res.send({ status: 'internalError' });
+    return res.send({ status: 'internalError', error: e.message });
   }
 };

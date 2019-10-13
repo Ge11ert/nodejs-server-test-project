@@ -16,6 +16,6 @@ module.exports = async function signIn(userService, req, res) {
 
     return res.send({ status: 'notFound' });
   } catch (e) {
-    return res.send({ status: 'internalError' });
+    return res.send({ status: 'internalError', error: e.message });
   }
 };
