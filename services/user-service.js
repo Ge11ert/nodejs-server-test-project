@@ -12,10 +12,10 @@ class UserService {
 
   getUserByCredentials(creds) {
     return new Promise((resolve, reject) => {
-      this.getUserByEmail(creds.email).then((user) => {
+      this.getUserByEmail(creds.email).then(async (user) => {
         const candidatePassword = creds.password;
 
-        const isMatch = user.comparePasswords(candidatePassword);
+        const isMatch = await user.comparePasswords(candidatePassword);
 
         if (isMatch) {
           return resolve(user);
