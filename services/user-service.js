@@ -42,8 +42,13 @@ class UserService {
 
   createUser(credentials) {
     const User = this.userModel;
-    const user = new User(credentials);
-    const jwtResult = generateJWT(user);
+    const userId = User.generateId();
+    const jwtResult = generateJWT(userId);
+    const user = new User({
+      _id: userId,
+      ...credentials,
+      refreshToken: jwtResult.refresh,
+    });
 
     return new Promise((resolve, reject) => {
       user.save((err) => {
