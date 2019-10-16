@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, lowercase: true, unique: true },
   username: { type: String, unique: true },
   password: { type: String, minLength: 3, maxLength: 15 },
+  refreshToken: { type: String },
 });
 
 userSchema.pre('save', async function preSave() {

@@ -1,3 +1,5 @@
+const { generateJWT } = require('./jwt');
+
 class UserService {
   constructor(userModel) {
     this.userModel = userModel;
@@ -41,6 +43,7 @@ class UserService {
   createUser(credentials) {
     const User = this.userModel;
     const user = new User(credentials);
+    const jwtResult = generateJWT(user);
 
     return new Promise((resolve, reject) => {
       user.save((err) => {

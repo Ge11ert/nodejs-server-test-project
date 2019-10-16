@@ -7,4 +7,7 @@ module.exports = {
     DEFAULT_HOST: '0.0.0.0',
     DEFAULT_PORT: 27017,
   },
+  jwt: {
+    secret: 'shhhhh',
+  },
 };
