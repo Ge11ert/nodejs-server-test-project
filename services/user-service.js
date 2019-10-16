@@ -57,7 +57,7 @@ class UserService {
           return;
         }
 
-        resolve(user);
+        resolve(jwtResult);
       });
     });
   }

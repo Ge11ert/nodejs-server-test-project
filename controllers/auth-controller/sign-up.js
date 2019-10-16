@@ -14,9 +14,19 @@ module.exports = async function signUp(userService, req, res) {
       return res.send({ status: 'userExistsError' });
     }
 
-    const user = await userService.createUser(userCredentials);
+    const session = await userService.createUser(userCredentials);
 
-    return res.json({ status: 'ok', user });
+    const result = {
+      access_token: session.access,
+      expires_in: session.accessExpiresIn,
+    };
+
+    res.cookie('refresh_token', session.refresh, {
+      expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
+      httpOnly: true,
+    });
+
+    return res.json({ status: 'ok', result });
   } catch (e) {
     return res.send({ status: 'internalError', error: e.message });
   }
